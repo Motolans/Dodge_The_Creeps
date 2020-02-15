@@ -1,6 +1,7 @@
 extends Node2D
 
 export (PackedScene) var Mob
+export (PackedScene) var Bullet
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
@@ -69,3 +70,11 @@ func _on_StartTimer_timeout():
 	$ScoreTimer.start()
 
 
+
+
+func _on_Player_shoot():
+	var bullet = Bullet.instance()
+	bullet.position.x = $Player.position.x 
+	bullet.position.y = $Player.position.y
+	add_child(bullet)
+	
