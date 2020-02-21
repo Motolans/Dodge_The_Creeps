@@ -74,7 +74,16 @@ func _on_StartTimer_timeout():
 
 func _on_Player_shoot():
 	var bullet = Bullet.instance()
+	add_child(bullet)
 	bullet.position.x = $Player.position.x 
 	bullet.position.y = $Player.position.y
-	add_child(bullet)
+	if Input.is_action_pressed("ui_shoot_right"):
+		bullet.velocity.x += 1
+	if Input.is_action_pressed("ui_shoot_left"):
+		bullet.velocity.x -= 1
+	if Input.is_action_pressed("ui_shoot_down"):
+		bullet.velocityy += 1
+	if Input.is_action_pressed("ui_shoot_up"):
+		bullet.velocity.y -= 1
+	
 	
